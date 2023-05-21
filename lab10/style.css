@@ -8,148 +8,100 @@
 }
 body{
   display: flex;
-  align-items: center;
-  justify-content: center;
   padding: 0 10px;
   min-height: 100vh;
-  background: #e58f8f;
-}
-.container{
-  max-width: 690px;
-  width: 100%;
-  padding: 30px;
-  background: #fff;
-  border-radius: 7px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.01);
-}
-.wrapper{
-  border-radius: 5px;
-  border: 1px solid #ccc;
-}
-.wrapper .text-input{
-  display: flex;
-  border-bottom: 1px solid #ccc;
-}
-.text-input .to-text{
-  border-radius: 0px;
-  border-left: 1px solid #ccc;
-}
-.text-input textarea{
-  height: 250px;
-  width: 100%;
-  border: none;
-  outline: none;
-  resize: none;
-  background: none;
-  font-size: 18px;
-  padding: 10px 15px;
-  border-radius: 5px;
-}
-.text-input textarea::placeholder{
-  color: #b7b6b6;
-}
-.controls, li, .icons, .icons i{
-  display: flex;
   align-items: center;
-  justify-content: space-between;
-}
-.controls{
-  list-style: none;
-  padding: 12px 15px;
-}
-.controls .row .icons{
-  width: 38%;
-}
-.controls .row .icons i{
-  width: 50px;
-  color: #adadad;
-  font-size: 14px;
-  cursor: pointer;
-  transition: transform 0.2s ease;
+  background: #e58f8f;
   justify-content: center;
 }
-.controls .row.from .icons{
-  padding-right: 15px;
-  border-right: 1px solid #ccc;
+::selection{
+  color: #fff;
+  background: #e58f8f;
 }
-.controls .row.to .icons{
-  padding-left: 15px;
-  border-left: 1px solid #ccc;
-}
-.controls .row select{
-  color: #333;
-  border: none;
-  outline: none;
-  font-size: 18px;
-  background: none;
-  padding-left: 5px;
-}
-.text-input textarea::-webkit-scrollbar{
-  width: 4px;
-}
-.controls .row select::-webkit-scrollbar{
-  width: 8px;
-}
-.text-input textarea::-webkit-scrollbar-track,
-.controls .row select::-webkit-scrollbar-track{
+.wrapper{
+  height: 265px;
+  max-width: 410px;
   background: #fff;
+  border-radius: 7px;
+  padding: 20px 25px 0;
+  transition: height 0.2s ease;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
-.text-input textarea::-webkit-scrollbar-thumb{
-  background: #ddd;
-  border-radius: 8px;
+.wrapper.active{
+  height: 530px;
 }
-.controls .row select::-webkit-scrollbar-thumb{
-  background: #999;
-  border-radius: 8px;
-  border-right: 2px solid #ffffff;
+header h1{
+  font-size: 21px;
+  font-weight: 500;
 }
-.controls .exchange{
-  color: #adadad;
-  cursor: pointer;
+header p{
+  margin-top: 5px;
+  color: #575757;
   font-size: 16px;
-  transition: transform 0.2s ease;
 }
-.controls i:active{
-  transform: scale(0.9);
+.wrapper .form{
+  margin: 20px 0 25px;
 }
-.container button{
+.form :where(input, button){
   width: 100%;
-  padding: 14px;
-  outline: none;
+  height: 55px;
   border: none;
+  outline: none;
+  border-radius: 5px;
+  transition: 0.1s ease;
+}
+.form input{
+  font-size: 18px;
+  padding: 0 17px;
+  border: 1px solid #999;
+}
+.form input:focus{
+  box-shadow: 0 3px 6px rgba(0,0,0,0.13);
+}
+.form input::placeholder{
+  color: #999;
+}
+.form button{
   color: #fff;
   cursor: pointer;
   margin-top: 20px;
   font-size: 17px;
+  background: #8a0000;
+}
+.qr-code{
+  opacity: 0;
+  display: flex;
+  padding: 33px 0;
   border-radius: 5px;
-  background: #e58f8f;
+  align-items: center;
+  pointer-events: none;
+  justify-content: center;
+  border: 1px solid #ccc;
+}
+.wrapper.active .qr-code{
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity 0.5s 0.05s ease;
+}
+.qr-code img{
+  width: 170px;
 }
 
-@media (max-width: 660px){
-  .container{
-    padding: 20px;
+@media (max-width: 430px){
+  .wrapper{
+    height: 255px;
+    padding: 16px 20px;
   }
-  .wrapper .text-input{
-    flex-direction: column;
+  .wrapper.active{
+    height: 510px;
   }
-  .text-input .to-text{
-    border-left: 0px;
-    border-top: 1px solid #ccc;
+  header p{
+    color: #696969;
   }
-  .text-input textarea{
-    height: 200px;
+  .form :where(input, button){
+    height: 52px;
   }
-  .controls .row .icons{
-    display: none;
-  }
-  .container button{
-    padding: 13px;
-    font-size: 16px;
-  }
-  .controls .row select{
-    font-size: 16px;
-  }
-  .controls .exchange{
-    font-size: 14px;
-  }
+  .qr-code img{
+    width: 160px;
+  }  
 }
